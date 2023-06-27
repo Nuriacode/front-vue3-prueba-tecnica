@@ -1,4 +1,5 @@
 <template>
+<router-view>
     <div class="">
     <div id="formContent">
       <!-- Tabs Titles -->
@@ -35,6 +36,7 @@
       </div>
     </div>
   </div>
+  </router-view>
 </template>
 <script>
 import axios from "axios";

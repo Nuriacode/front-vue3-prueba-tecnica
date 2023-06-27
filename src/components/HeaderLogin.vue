@@ -1,14 +1,15 @@
 <template>
   <div>
     <nav class="nav">
-        Navegador
+        Prueba técnica Vue
     </nav>
   </div>
 </template>
 <style scoped>
 .nav {
+  padding-top: 20px;
+  font-family: 'Courier New', Courier, monospace;
   height: 50px;
-  bottom: 0;
   width: 100%;
   background-color: black;
   color: white;
