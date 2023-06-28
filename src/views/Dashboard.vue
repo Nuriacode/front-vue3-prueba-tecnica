@@ -13,14 +13,14 @@
         </thead>
         <tbody>
           <tr
-            v-for="paciente in Listapacientes"
-            :key="paciente.id"
-            v-on:click="editar(paciente.id)"
+            v-for="libros in Listalibros"
+            :key="libros.id"
+            v-on:click="editar(libros.id)"
           >
-            <td>{{ paciente.id }}</td>
-            <td>{{ paciente.title }}</td>
-            <td>{{ paciente.body }}</td>
-            <td>{{ paciente.userId }}</td>
+            <td>{{ libros.id }}</td>
+            <td>{{ libros.title }}</td>
+            <td>{{ libros.body }}</td>
+            <td>{{ libros.userId }}</td>
           </tr>
         </tbody>
       </v-table>
@@ -35,7 +35,7 @@ export default {
   name: "DashBoard",
   data() {
     return {
-      Listapacientes: null,
+      Listalibros: null,
     };
   },
   components: {},
@@ -49,9 +49,9 @@ export default {
   },
   mounted: function () {
     let direction = "https://jsonplaceholder.typicode.com/posts";
-    axios.get(direction).then((data) => {
-      console.log(data.data);
-      this.Listapacientes = data.data;
+    axios.get(direction).then((libros) => {
+      console.log(libros.data);
+      this.Listalibros = libros.data;
     });
   },
 };

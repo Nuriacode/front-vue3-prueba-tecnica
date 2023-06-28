@@ -1,5 +1,16 @@
 <template>
 <h2>Nuevo Paciente</h2>
+  <div class="">
+        <label for="id" class="">ID</label>
+        <div>
+          <input
+            type="number"
+            name="id"
+            id="id"
+            class=""
+          />
+        </div>
+      </div>
   <div class="container">
     <form action="" class="">
       <div class="">
@@ -14,13 +25,24 @@
         </div>
       </div>
       <div class="">
-        <label for="body" class="">Direccion</label>
+        <label for="body" class="">Resumen</label>
         <div>
           <input
             type="text"
             class=""
             name="body"
             id="body"
+          />
+        </div>
+      </div>
+      <div class="">
+        <label for="userID" class="">Copias</label>
+        <div>
+          <input
+            type="text"
+            class=""
+            name="userID"
+            id="userID"
           />
         </div>
       </div>
@@ -118,8 +140,10 @@ export default {
   data: function () {
     return {
       form: {
-        title: "",
-        body: "",
+         id: "",   
+         title: "",
+         body: "",
+         userId: ""
       },
     };
   },
