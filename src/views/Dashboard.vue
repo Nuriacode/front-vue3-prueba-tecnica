@@ -1,50 +1,44 @@
 <template>
-    <router-view>
+  <router-view>
     <div class="container">
-      <button class="" v-on:click="nuevo()">
-        Nuevo Paciente
-      </button>
-      <table class="">
+      <button class="" v-on:click="nuevo()">Nuevo Paciente</button>
+      <v-table class="">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Ciudad</th>
-            <th>Teléfono</th>
-            <th>Correo</th>
+            <th class="text-left">ID</th>
+            <th class="text-left">Nombre</th>
+            <th class="text-left">Apellido</th>
+            <th class="text-left">Correo</th>
           </tr>
         </thead>
         <tbody>
           <tr
             v-for="paciente in Listapacientes"
-            :key="paciente.login"
-            v-on:click="editar(paciente.login.uuid)"
+            :key="paciente.id"
+            v-on:click="editar(paciente.id)"
           >
-            <th>{{ paciente.login.uuid }}</th>
-            <td>{{ paciente.name.first }}</td>
-            <td>{{ paciente.location.city }}</td>
-            <td>{{ paciente.phone }}</td>
+            <td>{{ paciente.id }}</td>
+            <td>{{ paciente.first_name }}</td>
+            <td>{{ paciente.last_name }}</td>
             <td>{{ paciente.email }}</td>
           </tr>
         </tbody>
-      </table>
+      </v-table>
     </div>
-    </router-view>
+  </router-view>
 </template>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterLink, RouterView } from "vue-router";
 import axios from "axios";
 export default {
   name: "DashBoard",
   data() {
     return {
       Listapacientes: null,
-      pagina: 1,
     };
   },
-  components: {
-  },
+  components: {},
   methods: {
     editar(id) {
       this.$router.push("/editar/" + id);
@@ -54,10 +48,10 @@ export default {
     },
   },
   mounted: function () {
-    let direction = "https://randomuser.me/api?results=5&noinfo";
+    let direction = "https://reqres.in/api/users";
     axios.get(direction).then((data) => {
-      console.log(data.data)
-      this.Listapacientes = data.data.results;
+      console.log(data.data.data);
+      this.Listapacientes = data.data.data;
     });
   },
 };

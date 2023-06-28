@@ -1,44 +1,44 @@
 <template>
-    <div class="container">
-      <form action="" class="form-horizontal">
-        <div class="form-group left">
-          <label for="" class="control-label col-sm-2">Nombre</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              class="form-control"
-              v-model="form.nombre"
-            />
-          </div>
+  <div class="container">
+    <form action="" class="">
+      <div class="">
+        <label for="title" class="control-label col-sm-2">Nombre</label>
+        <div>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            class=""
+            v-model="form.nombre"
+          />
         </div>
-        <div class="form-group left">
-          <label for="" class="control-label col-sm-2">Direccion</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              name="direccion"
-              id="direccion"
-              v-model="form.direccion"
-            />
-          </div>
+      </div>
+      <div class="">
+        <label for="body" class="">Direccion</label>
+        <div>
+          <input
+            type="text"
+            class=""
+            name="body"
+            id="body"
+            v-model="form.direccion"
+          />
         </div>
-        <div class="form-group left row">
-          <div class="col">
+      </div>
+      <div class="">
+        <!-- <div class="">
             <label for="" class="control-label col-sm-3">Correo</label>
-            <div class="col-sm-7">
+            <div class="">
               <input
                 type="text"
-                class="form-control"
+                class=""
                 name="correo"
                 id="correo"
                 v-model="form.correo"
               />
             </div>
-          </div>
-          <div class="col">
+          </div> -->
+        <!-- <div class="col">
             <label for="" class="control-label col-sm-5">codigo Postal</label>
             <div class="col-sm-7">
               <input
@@ -50,8 +50,8 @@
               />
             </div>
           </div>
-        </div>
-        <div class="form-group left row">
+        </div> -->
+        <!-- <div class="form-group left row">
           <div class="col">
             <label for="" class="control-label col-sm-2">Genero</label>
             <div class="col-sm-7">
@@ -63,8 +63,8 @@
                 v-model="form.genero"
               />
             </div>
-          </div>
-          <div class="col">
+          </div> -->
+        <!-- <div class="col">
             <label for="" class="control-label col-sm-2">Telefono</label>
             <div class="col-sm-7">
               <input
@@ -76,8 +76,8 @@
               />
             </div>
           </div>
-        </div>
-        <div class="form-group left">
+        </div> -->
+        <!-- <div class="form-group left">
           <label for="" class="control-label col-sm-2">Fecha nacimiento</label>
           <div class="col-sm-4">
             <input
@@ -88,8 +88,8 @@
               v-model="form.fechaNacimiento"
             />
           </div>
-        </div>
-        <div class="col">
+        </div> -->
+        <!-- <div class="col">
           <label for="" class="control-label col-sm-2">DNI</label>
           <div class="col-sm-7">
             <input
@@ -99,22 +99,18 @@
               id="dni"
               v-model="form.dni"
             />
-          </div>
-        </div>
-        <div class="form-group">
-          <button type="button" class="btn btn-primary" v-on:click="guardar()">
-            Guardar
-          </button>
-          <button
-            type="button"
-            class="btn btn-dark margen"
-            v-on:click="salir()"
-          >
-            Salir
-          </button>
-        </div>
-      </form>
-    </div>
+          </div> -->
+      </div>
+      <div class="form-group">
+        <button type="button" class="btn btn-primary" v-on:click="guardar()">
+          Guardar
+        </button>
+        <button type="button" class="btn btn-dark margen" v-on:click="salir()">
+          Salir
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -123,23 +119,24 @@ export default {
   data: function () {
     return {
       form: {
-        nombre: "",
-        dni: "",
-        correo: "",
-        codigoPostal: "",
-        genero: "",
-        telefono: "",
-        fechaNacimiento: "",
-        token: "",
+        title: "",
+        body: "",
+        // token: ""
       },
     };
   },
   methods: {
     async guardar() {
-      this.form.token = localStorage.getItem("token");
-      await axios
-        .post("https://api.solodata.es/pacientes", this.form)
+      // this.form.token = localStorage.getItem("token");
+      try {
+        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', (this.form),
+        // console.log(response)
+      )}
+      catch(error) {
+      console.error(error);
+    }
     },
+
     salir() {
       this.$router.push("/dashboard/");
     },
