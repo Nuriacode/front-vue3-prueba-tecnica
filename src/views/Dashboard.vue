@@ -5,7 +5,7 @@
       <button class="" v-on:click="nuevo()">
         Nuevo Paciente
       </button>
-      <table class="">
+      <!-- <table class="">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -28,7 +28,7 @@
             <td>{{ paciente.Correo }}</td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
     </div>
     </router-view>
     <FooterLogin />

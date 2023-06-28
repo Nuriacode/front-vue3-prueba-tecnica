@@ -53,12 +53,12 @@ export default {
     };
   },
   methods: {
-    login() {
+    async login() {
       let json = {
         usuario: this.user,
         password: this.password,
       };
-      axios.post("https://api.solodata.es/auth", json).then((data) => {
+      const data = await axios.post("https://api.solodata.es/auth", json)
         console.log(data);
         if (data.data.status == "ok") {
           localStorage.token = data.data.result.token;
@@ -67,7 +67,6 @@ export default {
           this.error = true;
           this.error_msg = data.data.result.error_msg;
         }
-      });
     },
   },
 };
