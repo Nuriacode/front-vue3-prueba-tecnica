@@ -1,5 +1,4 @@
 <template>
-<router-link to='/dashboard'>link</router-link>
 <router-view>
     <div class="">
     <div id="formContent">

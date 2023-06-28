@@ -1,16 +1,15 @@
 <template>
-  <div class="app">
+  <div id="app">
     <HeaderLogin />
-    <router-view>
-    <LogIn />
-    </router-view>
+    <RouterView />
     <FooterLogin />
   </div>
 </template>
 <script>
-import HeaderLogin from "./components/HeaderLogin.vue"
+import HeaderLogin from "./components/HeaderLogin.vue";
 import LogIn from "./views/LogIn.vue";
 import FooterLogin from './components/FooterLogin.vue';
+import { RouterLink, RouterView } from 'vue-router'
 
 export default {
   name: "App",

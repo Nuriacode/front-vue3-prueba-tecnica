@@ -1,42 +1,38 @@
 <template>
-    <HeaderLogin />
     <router-view>
     <div class="container">
       <button class="" v-on:click="nuevo()">
         Nuevo Paciente
       </button>
-      <!-- <table class="">
+      <table class="">
         <thead>
           <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nombre</th>
-            <th scope="col">DNI</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Correo</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Ciudad</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
           </tr>
         </thead>
         <tbody>
           <tr
             v-for="paciente in Listapacientes"
-            :key="paciente.PacienteId"
-            v-on:click="editar(paciente.PacienteId)"
+            :key="paciente.login"
+            v-on:click="editar(paciente.login.uuid)"
           >
-            <th scope="">{{ paciente.PacienteId }}</th>
-            <td>{{ paciente.Nombre }}</td>
-            <td>{{ paciente.DNI }}</td>
-            <td>{{ paciente.Telefono }}</td>
-            <td>{{ paciente.Correo }}</td>
+            <th>{{ paciente.login.uuid }}</th>
+            <td>{{ paciente.name.first }}</td>
+            <td>{{ paciente.location.city }}</td>
+            <td>{{ paciente.phone }}</td>
+            <td>{{ paciente.email }}</td>
           </tr>
         </tbody>
-      </table> -->
+      </table>
     </div>
     </router-view>
-    <FooterLogin />
 </template>
 
 <script>
-import HeaderLogin from "../components/HeaderLogin.vue";
-import FooterLogin from "../components/FooterLogin.vue";
 import axios from "axios";
 export default {
   name: "DashBoard",
@@ -47,8 +43,6 @@ export default {
     };
   },
   components: {
-    HeaderLogin,
-    FooterLogin,
   },
   methods: {
     editar(id) {
@@ -59,9 +53,10 @@ export default {
     },
   },
   mounted: function () {
-    let direction = "https://api.solodata.es/pacientes?page=" + this.pagina;
+    let direction = "https://randomuser.me/api?results=5&noinfo";
     axios.get(direction).then((data) => {
-      this.Listapacientes = data.data;
+      console.log(data.data)
+      this.Listapacientes = data.data.results;
     });
   },
 };
