@@ -1,4 +1,5 @@
 <template>
+<h2>Nuevo Paciente</h2>
   <div class="container">
     <form action="" class="">
       <div class="">
@@ -9,7 +10,6 @@
             name="title"
             id="title"
             class=""
-            v-model="form.nombre"
           />
         </div>
       </div>
@@ -21,11 +21,10 @@
             class=""
             name="body"
             id="body"
-            v-model="form.direccion"
           />
         </div>
       </div>
-      <div class="">
+      <!-- <div class=""> -->
         <!-- <div class="">
             <label for="" class="control-label col-sm-3">Correo</label>
             <div class="">
@@ -100,8 +99,8 @@
               v-model="form.dni"
             />
           </div> -->
-      </div>
-      <div class="form-group">
+      <!-- </div> -->
+      <div class="">
         <button type="button" class="btn btn-primary" v-on:click="guardar()">
           Guardar
         </button>
@@ -121,13 +120,11 @@ export default {
       form: {
         title: "",
         body: "",
-        // token: ""
       },
     };
   },
   methods: {
     async guardar() {
-      // this.form.token = localStorage.getItem("token");
       try {
         const response = await axios.post('https://jsonplaceholder.typicode.com/posts', (this.form),
         // console.log(response)

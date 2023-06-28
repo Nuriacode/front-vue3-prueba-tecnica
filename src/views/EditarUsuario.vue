@@ -1,32 +1,52 @@
 <template>
-  <div>
-    <div class="container">
-      <form action="" class="">
+<h2> Editar Información Libro </h2>
+   <div class="container">
+    <form action="" class="">
         <div class="">
-          <label for="" class="">Nombre</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              name="nombre"
-              id="nombre"
-              class=""
-              v-model="form.nombre"
-            />
-          </div>
+        <label for="id" class="">ID</label>
+        <div>
+          <input
+            type="number"
+            name="id"
+            id="id"
+            class=""
+          />
         </div>
-        <div class="">
-          <label for="" class="control-label col-sm-2">Direccion</label>
-          <div class="">
-            <input
-              type="text"
-              class=""
-              name="direccion"
-              id="direccion"
-              v-model="form.direccion"
-            />
-          </div>
+      </div>
+      <div class="">
+        <label for="title" class="">Nombre</label>
+        <div>
+          <input
+            type="text"
+            name="title"
+            id="title"
+            class=""
+          />
         </div>
-        <div class="">
+      </div>
+      <div class="">
+        <label for="body" class="">Resumen</label>
+        <div>
+          <input
+            type="text"
+            class=""
+            name="body"
+            id="body"
+          />
+        </div>
+      </div>
+       <div class="">
+        <label for="userID" class="">Copias</label>
+        <div>
+          <input
+            type="text"
+            class=""
+            name="userID"
+            id="userID"
+          />
+        </div>
+      </div>
+        <!-- <div class="">
           <div class="col">
             <label for="" class="">Correo</label>
             <div class="">
@@ -89,7 +109,7 @@
               v-model="form.fechaNacimiento"
             />
           </div>
-        </div>
+        </div> -->
         <div class="">
           <button type="button" class="btn btn-primary" v-on:click="editar()">
             Editar
@@ -111,7 +131,6 @@
         </div>
       </form>
     </div>
-  </div>
 </template>
 <script>
 import axios from "axios";
@@ -120,53 +139,44 @@ export default {
   data: function () {
     return {
       form: {
-        pacienteId: "",
-        nombre: "",
-        dni: "",
-        correo: "",
-        codigoPostal: "",
-        genero: "",
-        telefono: "",
-        fechaNacimiento: "",
-        token: "",
+         id: "",   
+         title: "",
+         body: "",
+         userId: ""
       },
     };
   },
   methods: {
-    editar() {
-      axios.put("https://api.solodata.es/pacientes", this.form).then((data) => {
-        console.log(data);
-      });
+    async editar() {
+        try {
+            const id = this.form.id;
+            const response = await axios.put(`https://jsonplaceholder.typicode.com/users/`+ this.form.id, (this.form)
+            )}
+            catch(error) {
+                console.error(error);
+            }
     },
     salir() {
       this.$router.push("/dashboard");
     },
-    eliminar() {
-      var enviar = {
-        paciente: this.form.pacienteId,
-        token: this.form.token,
-      };
-      axios
-        .delete("https://api.solodata.es/pacientes", { header: enviar })
-        .then((data) => {
-          console.log(data);
-          this.$router.push("/dashboard");
-        });
+    async eliminar(id) {
+      try {
+        const response = await axios.delete('https://jsonplaceholder.typicode.com/users/' + this.form.id)
+      } 
+      catch(error) {
+        console.error(error);
+      }
     },
   },
   mounted: function () {
-    this.form.pacienteId = this.$route.params.id;
+    this.form.id = this.$route.params.id;
     axios
-      .get("https://api.solodata.es/pacientes?id=" + this.form.pacienteId)
+      .get("https://api.solodata.es/pacientes?id=" + this.form.id)
       .then((data) => {
-        this.form.nombre = data.data[0].Nombre;
-        this.for.dni = data.data[0].DNI;
-        this.form.correo = data.data[0].Correo;
-        this.form.codigoPostal = data.data[0].CodigoPostal;
-        this.form.genero = data.data[0].Genero;
-        this.form.telefono = data.data[0].Telefono;
-        this.form.fechaNacimiento = data.data[0].FechaNacimiento;
-        this.form.token = localStorage.getItem("token");
+        this.form.id = data.data[0].id;
+        this.for.title = data.data[0].title;
+        this.form.body = data.data[0].body;
+        this.form.userId = data.data[0].userId;
       });
   },
 };

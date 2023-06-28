@@ -1,14 +1,14 @@
 <template>
   <router-view>
     <div class="container">
-      <button class="" v-on:click="nuevo()">Nuevo Paciente</button>
+      <button class="" v-on:click="nuevo()">Nuevo Libro</button>
       <v-table class="">
         <thead>
           <tr>
             <th class="text-left">ID</th>
-            <th class="text-left">Nombre</th>
-            <th class="text-left">Apellido</th>
-            <th class="text-left">Correo</th>
+            <th class="text-left">Título</th>
+            <th class="text-left">Resumen</th>
+            <th class="text-left">Copias</th>
           </tr>
         </thead>
         <tbody>
@@ -18,9 +18,9 @@
             v-on:click="editar(paciente.id)"
           >
             <td>{{ paciente.id }}</td>
-            <td>{{ paciente.first_name }}</td>
-            <td>{{ paciente.last_name }}</td>
-            <td>{{ paciente.email }}</td>
+            <td>{{ paciente.title }}</td>
+            <td>{{ paciente.body }}</td>
+            <td>{{ paciente.userId }}</td>
           </tr>
         </tbody>
       </v-table>
@@ -48,10 +48,10 @@ export default {
     },
   },
   mounted: function () {
-    let direction = "https://reqres.in/api/users";
+    let direction = "https://jsonplaceholder.typicode.com/posts";
     axios.get(direction).then((data) => {
-      console.log(data.data.data);
-      this.Listapacientes = data.data.data;
+      console.log(data.data);
+      this.Listapacientes = data.data;
     });
   },
 };
