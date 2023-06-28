@@ -5,7 +5,6 @@
       <button class="" v-on:click="nuevo()">
         Nuevo Paciente
       </button>
-
       <table class="">
         <thead>
           <tr>

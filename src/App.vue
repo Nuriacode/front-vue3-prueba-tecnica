@@ -23,7 +23,6 @@ export default {
 </script>
 <style>
 #app {
-  padding: 0px;
   height: 100vh;
   width: 100%;
 }
