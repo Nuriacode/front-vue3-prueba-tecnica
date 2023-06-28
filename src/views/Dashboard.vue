@@ -33,6 +33,7 @@
 </template>
 
 <script>
+import { RouterLink, RouterView } from 'vue-router'
 import axios from "axios";
 export default {
   name: "DashBoard",
@@ -48,8 +49,8 @@ export default {
     editar(id) {
       this.$router.push("/editar/" + id);
     },
-    nuevo(id) {
-      this.$router.push("/nuevo/" + id);
+    nuevo() {
+      this.$router.push("/nuevo/");
     },
   },
   mounted: function () {
