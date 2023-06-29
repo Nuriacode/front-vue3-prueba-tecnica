@@ -47,12 +47,11 @@ export default {
       this.$router.push("/nuevo/");
     },
   },
-  mounted: function () {
+  mounted: async function () {
     let direction = "https://jsonplaceholder.typicode.com/posts";
-    axios.get(direction).then((libros) => {
-      console.log(libros.data);
-      this.Listalibros = libros.data;
-    });
+
+    const libros = await axios.get(direction);
+    this.Listalibros = libros.data;
   },
 };
 </script>
@@ -64,12 +63,14 @@ export default {
     margin-top: 20px;
     margin-bottom: 20px;
     width: 120px;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     border-radius: 5px;
-    background-color: rgb(210, 240, 165)
+    background-color: rgb(210, 240, 165);
   }
-  v-table{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  v-table {
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+      "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-size: 13px;
     margin-bottom: 30px;
     margin-left: 10px;

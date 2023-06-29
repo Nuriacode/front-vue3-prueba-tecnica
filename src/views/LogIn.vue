@@ -2,7 +2,6 @@
   <router-view>
     <div class="container">
       <h3 >Login</h3>
-
       <!-- Login Form -->
       <form class="container__form" v-on:submit.prevent="login">
         <input

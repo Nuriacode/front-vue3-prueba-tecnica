@@ -77,14 +77,13 @@ export default {
   methods: {
     async guardar() {
       try {
-        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', (this.form),
-        // console.log(response)
-      )}
+        const response = await axios.post('https://jsonplaceholder.typicode.com/posts', (this.form)) 
+        console.log(response)
+      } 
       catch(error) {
       console.error(error);
     }
     },
-
     salir() {
       this.$router.push("/dashboard/");
     },
