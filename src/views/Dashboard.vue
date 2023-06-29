@@ -56,3 +56,24 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 120px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    background-color: rgb(210, 240, 165)
+  }
+  v-table{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 13px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+</style>

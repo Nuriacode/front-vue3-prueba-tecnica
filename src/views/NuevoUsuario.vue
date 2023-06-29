@@ -1,6 +1,8 @@
 <template>
-<h2>Nuevo Paciente</h2>
-  <div class="">
+
+<h2 class="title">Nuevo Paciente</h2>
+<form class="container" v-on:submit.prevent="login">
+  <article>
         <label for="id" class="">ID</label>
         <div>
           <input
@@ -10,8 +12,8 @@
             class=""
           />
         </div>
-      </div>
-  <div class="container">
+      </article>
+  <div>
     <form action="" class="">
       <div class="">
         <label for="title" class="control-label col-sm-2">Nombre</label>
@@ -24,7 +26,7 @@
           />
         </div>
       </div>
-      <div class="">
+      <div>
         <label for="body" class="">Resumen</label>
         <div>
           <input
@@ -35,7 +37,7 @@
           />
         </div>
       </div>
-      <div class="">
+      <div>
         <label for="userID" class="">Copias</label>
         <div>
           <input
@@ -46,83 +48,7 @@
           />
         </div>
       </div>
-      <!-- <div class=""> -->
-        <!-- <div class="">
-            <label for="" class="control-label col-sm-3">Correo</label>
-            <div class="">
-              <input
-                type="text"
-                class=""
-                name="correo"
-                id="correo"
-                v-model="form.correo"
-              />
-            </div>
-          </div> -->
-        <!-- <div class="col">
-            <label for="" class="control-label col-sm-5">codigo Postal</label>
-            <div class="col-sm-7">
-              <input
-                type="text"
-                class="form-control"
-                name="codigopostal"
-                id="codigopostal"
-                v-model="form.codigoPostal"
-              />
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="form-group left row">
-          <div class="col">
-            <label for="" class="control-label col-sm-2">Genero</label>
-            <div class="col-sm-7">
-              <input
-                type="text"
-                class="form-control"
-                name="genero"
-                id="genero"
-                v-model="form.genero"
-              />
-            </div>
-          </div> -->
-        <!-- <div class="col">
-            <label for="" class="control-label col-sm-2">Telefono</label>
-            <div class="col-sm-7">
-              <input
-                type="text"
-                class="form-control"
-                name="telefono"
-                id="telefono"
-                v-model="form.telefono"
-              />
-            </div>
-          </div>
-        </div> -->
-        <!-- <div class="form-group left">
-          <label for="" class="control-label col-sm-2">Fecha nacimiento</label>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class="form-control"
-              name="fechanacimineto"
-              id="telefono"
-              v-model="form.fechaNacimiento"
-            />
-          </div>
-        </div> -->
-        <!-- <div class="col">
-          <label for="" class="control-label col-sm-2">DNI</label>
-          <div class="col-sm-7">
-            <input
-              type="text"
-              class="form-control"
-              name="dni"
-              id="dni"
-              v-model="form.dni"
-            />
-          </div> -->
-      <!-- </div> -->
-      <div class="">
+      <div>
         <button type="button" class="btn btn-primary" v-on:click="guardar()">
           Guardar
         </button>
@@ -132,6 +58,7 @@
       </div>
     </form>
   </div>
+  </form>
 </template>
 <script>
 import axios from "axios";
@@ -164,3 +91,20 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 84vh;
+  h2{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-self: center;
+  article{
+    align-self: center;
+    align-content: center;
+    align-items: center;
+   
+  }
+}
+}
+</style>

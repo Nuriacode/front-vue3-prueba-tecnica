@@ -181,3 +181,20 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+.container{
+  display: flex;
+  flex-direction: column;
+  height: 84vh;
+  h2{
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  align-self: center;
+  article{
+    align-self: center;
+    align-content: center;
+    align-items: center;
+   
+  }
+}
+}
+</style>
