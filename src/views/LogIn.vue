@@ -1,6 +1,7 @@
 <template>
   <router-view>
     <div class="container">
+     <img src="/user.png"/>
       <h3 >Login</h3>
       <!-- Login Form -->
       <form class="container__form" v-on:submit.prevent="login">
@@ -64,19 +65,25 @@ export default {
 </script>
 <style lang="scss" scoped>
 .container {
-  height: 80vh;
+  height: 86vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-content: center;
 
+  img {
+    width: 120px;
+    align-self: center;
+  }
+
   h3 {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     align-self: center;
-    margin-bottom: 75px;
+    margin-bottom: 45px;
     font-size: 35px;
-    color: rgb(217, 164, 233);
+    color: rgb(0, 0, 0);
   }
+
 
   form{
     display: flex;

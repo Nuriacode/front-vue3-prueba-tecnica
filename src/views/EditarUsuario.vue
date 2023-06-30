@@ -1,6 +1,5 @@
 <template>
   <h2>Editar Información Libro</h2>
-  <img src="/user.png"/>
   <div class="container">
     <form action="" class="">
       <div class="">
@@ -27,70 +26,6 @@
           <input type="text" v-model="form.userId" name="userID" id="userID" />
         </div>
       </div>
-      <!-- <div class="">
-          <div class="col">
-            <label for="" class="">Correo</label>
-            <div class="">
-              <input
-                type="text"
-                class="form-control"
-                name="correo"
-                id="correo"
-                v-model="form.correo"
-              />
-            </div>
-          </div>
-          <div class="">
-            <label for="" class="">codigo Postal</label>
-            <div class="">
-              <input
-                type="text"
-                class="form-control"
-                name="codigopostal"
-                id="codigopostal"
-                v-model="form.codigoPostal"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <div class="col">
-            <label for="" class="">Genero</label>
-            <div class="col-sm-7">
-              <input
-                type="text"
-                class=""
-                name="genero"
-                id="genero"
-                v-model="form.genero"
-              />
-            </div>
-          </div>
-          <div class="col">
-            <label for="" class="">Telefono</label>
-            <div class="col-sm-7">
-              <input
-                type="text"
-                class=""
-                name="telefono"
-                id="telefono"
-                v-model="form.telefono"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="">
-          <label for="" class="">Fecha nacimiento</label>
-          <div class="col-sm-4">
-            <input
-              type="text"
-              class=""
-              name="fechanacimineto"
-              id="telefono"
-              v-model="form.fechaNacimiento"
-            />
-          </div>
-        </div> -->
       <div class="">
         <button type="button" class="btn btn-primary" v-on:click="editar()">
           Editar
