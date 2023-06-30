@@ -102,5 +102,10 @@ export default {
   height: 25px;
   border-radius: 7px;
   width: 150px;
+  button{
+    background-color: rgb(211, 255, 192);
+    border-radius: 7px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  }
 }
 </style>
